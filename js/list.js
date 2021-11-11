@@ -111,26 +111,6 @@ new Vue({
                 .catch(function (error) {
                     console.log(error);
                 })
-        },
-        getArchivedRecords: function () {
-            var self = this;
-            axios.get(API_ENDPOINTS.postArchiveEndpoint, {
-                headers: {
-                    "Accept": "application/json;odata=verbose"
-                }
-            })
-                .then(function (response) {
-                    if (response.data) {
-                        
-                        self.archiveData = response.data.d.results.sort(sort_by('Created', true, ''))
-                        
-                    } else {
-                        console.log(response);
-                    }
-                }.bind(this))
-                .catch(function (error) {
-                    console.log(error);
-                })
         }
     }
 });
